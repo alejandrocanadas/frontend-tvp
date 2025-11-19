@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -11,6 +11,14 @@ export class PagosService {
 
   constructor(private http: HttpClient) { }
 
+
+  crearCompra(cedula: string, numeroTarjeta: string){
+    const params = new HttpParams()
+    .set('cedula', cedula)
+    .set('numeroTarjeta', numeroTarjeta);
+
+    return this.http.post(`${this.apiUrl}/compras/crear`, null, { params });
+  }
 
   // ----------------------------------------------------------
   // 🟦 CLIENTES
@@ -79,22 +87,6 @@ export class PagosService {
   eliminarTarjeta(id: number): Observable<any> {
     return this.http.delete(`${this.apiUrl}/tarjetas/${id}`);
   }
-
-
-
-  // ----------------------------------------------------------
-  // 🟩 TRANSACCIONES
-  // ----------------------------------------------------------
-
-  listarTransacciones(): Observable<any> {
-    return this.http.get(`${this.apiUrl}/transacciones`);
-  }
-
-  anularTransaccion(id: number): Observable<any> {
-    return this.http.put(`${this.apiUrl}/transacciones/${id}/anular`, {});
-  }
-
-
 
   // ----------------------------------------------------------
   // 🟦 CARRITO

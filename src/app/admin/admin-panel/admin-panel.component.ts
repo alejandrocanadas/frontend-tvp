@@ -120,24 +120,6 @@ export class AdminPanelComponent {
       .subscribe(() => this.resultado = "Paquete eliminado");
   }
 
-
-  // ===================================================
-  // 🟦 TRANSACCIONES
-  // ===================================================
-
-  listarTransacciones() {
-    this.pagos.listarTransacciones().subscribe(res => this.resultado = res);
-  }
-
-  anularTransaccion() {
-    const id = prompt("ID de la transacción a anular:");
-    if (!id) return;
-
-    this.pagos.anularTransaccion(Number(id))
-      .subscribe(res => this.resultado = res);
-  }
-
-
   // ===================================================
   // 🟦 CARRITO
   // ===================================================

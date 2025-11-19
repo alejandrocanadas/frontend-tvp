@@ -102,6 +102,19 @@
   <div class="container">
     <h1 class="mt-4 mb-4 text-center text-dark">Panel del Cliente</h1>
 
+    <!-- ===================== Compras ===================== -->
+    <div class="card mb-3 shadow-lg rounded">
+      <div class="card-header bg-dark text-white">
+        <h4 class="mb-0">Gestión de Compras</h4>
+      </div>
+      <div class="card-body">
+
+        <button class="btn btn-modern btn-primary mb-2" (click)="crearCompra()">
+          <i class="fas fa-shopping-cart btn-icon"></i> Crear Compra
+        </button>
+      </div>
+    </div>
+
     <!-- ===================== PAQUETES ===================== -->
     <div class="card mb-3 shadow-lg rounded">
       <div class="card-header bg-primary text-white">
@@ -157,9 +170,7 @@
           <i class="fas fa-trash-alt btn-icon"></i> Eliminar Item del Carrito
         </button>
 
-        <button class="btn btn-modern btn-primary mb-2" (click)="pagarCarrito()">
-          <i class="fas fa-credit-card btn-icon"></i> Pagar Carrito
-        </button>
+        
 
       </div>
     </div>

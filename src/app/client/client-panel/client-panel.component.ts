@@ -14,6 +14,13 @@ export class ClientPanelComponent {
 
   constructor(private pagos: PagosService) { }
 
+  crearCompra() {
+    const cedula = prompt("Ingrese su cédula:");
+    const numeroTarjeta = prompt("Ingrese su número de tarjeta:");
+    if (!cedula || !numeroTarjeta) return;
+    this.pagos.crearCompra(cedula, numeroTarjeta)
+      .subscribe(res => this.resultado = res);
+  }
 
   // ============================================
   // 🟦 PAQUETES
